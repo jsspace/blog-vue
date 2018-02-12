@@ -1,0 +1,8 @@
+.DS_Store
+npm-debug.log
+dest/*
+node_modules/*
+bower_components/*
+.idea
+public/images
+dist
