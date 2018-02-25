@@ -8,24 +8,20 @@ const needLogin = require('../middleware/is-admin').needLogin;
 const historyMode = require('../middleware/history-mode').historyMode;
 const article = require('../api/article');
 const api = require('../api');
+const error = require('./error');
 
 // ==== admin ====
-router.get('/space/admin', historyMode);
+router.get('/space/admin/*', historyMode);
 
 // ==== api ====
 router.get('/posts', article.getList);
 
 router.post('/posts', article.createItem);
 
-router.put('/posts', article)
-router.put('/posts', article)
+router.put('/posts/modify', article.updateItem);
+router.get('/posts/item', article.getItem);
 
-// router.post('/login', api.passport);
 
-// error router handler
-router.use('/', function (error, req, res, next) {
-  res.send();
-});
-
+router.use(error);
 
 module.exports = router;

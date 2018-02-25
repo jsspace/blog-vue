@@ -43,7 +43,7 @@ exports.getList = (req, res) => {
 
 // 获取单篇文章
 exports.getItem = (req, res) => {
-    const articleId = req.param.id;
+    const articleId = req.query.id;
     if (!articleId) {
         res.send({
             err_code: -1,
@@ -82,6 +82,24 @@ exports.createItem = (req, res) => {
 
 // 更新文章
 exports.updateItem = (req, res) => {
-    const body = req.body;
-    Article.update()
+    let body = req.body,
+        id = body.id;
+
+    let data = {
+        title: body.title,
+        url: body.url,
+        abstract: body.abstract,
+        content: body.content,
+        tags: body.tags
+    };
+    Article.update({_id: id}, data).then(result => {
+        res.send({
+            err_code: 0
+        });
+    }).catch(e => {
+        res.send({
+            err_code: -2,
+            err_msg: e.message
+        });
+    })
 }
