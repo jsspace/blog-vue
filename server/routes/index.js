@@ -10,7 +10,13 @@ const article = require('../api/article');
 const api = require('../api');
 const error = require('./error');
 
+// === frontend ===
+router.get('/', article.renderIndex);
+router.get('/post/:url', article.renderItem);
+
+
 // ==== admin ====
+router.get('/space/admin', historyMode);
 router.get('/space/admin/*', historyMode);
 
 // ==== api ====

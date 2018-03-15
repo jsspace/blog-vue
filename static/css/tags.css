@@ -1,0 +1,27 @@
+html {
+    font-size: 100px;
+}
+.title{
+    margin: 0;
+    font-size: 30px;
+    padding: 0.3rem 0 0.2rem;
+    border-bottom: 1px dashed #ddd;
+}
+
+.tags{
+    display: block;
+    margin: 0.15rem 0;
+    font-size: 0;
+}
+
+.tags .tag {
+    font-size: 0.14rem;
+    text-decoration: none;
+    line-height: 0.12rem;
+    color: #32D3C3;
+    display: inline-block;
+    border-radius: 1.15rem;
+    border: 1px solid #32D3C3;
+    padding: 0.07rem 0.11rem;
+    margin: 0.1rem 0.12rem 0 0;
+}

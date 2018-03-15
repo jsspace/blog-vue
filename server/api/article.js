@@ -2,7 +2,10 @@
  * Created by minyi on 2017/6/1.
  */
 let Article = require('../models/article.js');
+let moment = require('moment');
+let marked = require('../api').marked;
 
+// 获取接口数据
 exports.getList = (req, res) => {
     let by = req.query.by,
         key = req.query.key,
@@ -40,6 +43,23 @@ exports.getList = (req, res) => {
         });
     });
 };
+// 前端首页渲染
+exports.renderIndex = (req, res) => {
+    let filter = {is_delete: 0};
+    let fields = 'title url abstract tags visited like createdAt';
+    let indexPages = 10;
+    let sort = '-createdAt';
+
+    Article.find(filter, fields).sort(sort).limit(indexPages).lean()
+        .then(posts => {
+            posts.forEach(item => {
+                item.createdAt = moment(item.createdAt).format('YYYY-MM-DD');
+            });
+            res.render('index', {posts: posts});
+        }).catch(err => {
+        console.log(err);
+    })
+};
 
 // 获取单篇文章
 exports.getItem = (req, res) => {
@@ -63,6 +83,18 @@ exports.getItem = (req, res) => {
             err_msg: e.message
         })
     })
+};
+
+// 渲染单篇文章
+exports.renderItem = (req, res) => {
+    let url = req.params.url;
+    let fields = 'title tags visited like createdAt content abstract';
+    let data = {url: url, is_delete: 0};
+    Article.findOne(data, fields).lean()
+        .then(post => {
+            post.markdown = marked(post.content);
+            res.render('post', {blog: post});
+        })
 };
 
 // 创建文章

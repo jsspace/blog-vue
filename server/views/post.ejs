@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="space, blog, 前端,<%= blog.title %>">
+    <meta name="description" content="<%= blog.abstract %>">
+    <meta name="author" content="yimin,2316114920@qq.com">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title><%= blog.title %></title>
+    <link rel="stylesheet" href="/css/lib/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/show.css">
+</head>
+<body class="pg-index">
+<% include ./layout/header %>
+<article class="detail_post" style="">
+    <header class="article_title">
+        <h1 class="title"><%= blog.title %></h1>
+    </header>
+    <p class="info"></p>
+    <div class="article_content">
+        <%- blog.markdown %>
+    </div>
+</article>
+<% include ./layout/ga %>
+</body>
+</html>

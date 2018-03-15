@@ -1,0 +1,28 @@
+html{
+    font-size: 100px;
+}
+body{
+    background-color: #f4f4f4;
+    font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft YaHei", sans-serif;
+}
+.main-wrapper{
+    width: 5rem;
+    overflow: hidden;
+    margin: 1rem auto;
+    background-color: #fff;
+    padding: 0.4rem 0.5rem 0.5rem;
+    border-radius: 0.05rem;
+    box-shadow: 0 0 5px 2px #ccc;
+}
+.btn{
+    margin: 0.2rem auto;
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 0.16rem;
+}
+p{
+    font-size: 0.26rem;
+    text-align: center;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+}
