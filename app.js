@@ -13,12 +13,10 @@ const session = require('express-session');
 const compression = require('compression');
 var mongoose = require('mongoose');
 
-var db = mongoose.connect('mongodb://localhost/personalBlog');
-db.connection.on('error', function (error) {
-    console.log('数据库连接失败：' + error);
-});
-db.connection.once('open', function () {
+var db = mongoose.connect('mongodb://localhost/personalBlog').then(() => {
     console.log('--数据库连接成功--');
+}).catch(err => {
+    console.log('数据库连接失败：' + err);
 });
 
 // routes

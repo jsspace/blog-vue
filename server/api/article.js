@@ -6,7 +6,7 @@ let Article = require('../models/article.js');
 exports.getList = (req, res) => {
     let by = req.query.by,
         key = req.query.key,
-        limit = req.query.limit,
+        limit = req.query.size,
         page = req.query.page,
         filter = {is_delete: 0},
         sort = '-createdAt',
@@ -34,7 +34,7 @@ exports.getList = (req, res) => {
         let hasMore = page * limit < total;
         res.send({
             data: data,
-            totalPage: totalPage,
+            total: total,
             hasMore: hasMore,
             err_code: 0
         });
@@ -102,4 +102,22 @@ exports.updateItem = (req, res) => {
             err_msg: e.message
         });
     })
-}
+};
+
+// 删除文章
+exports.deleteItem = (req, res) => {
+    let postId = req.params.id;
+    let data = {
+        is_delete: 1
+    };
+    Article.update({_id: postId}, data).then(result => {
+        res.send({
+            err_code: 0
+        });
+    }).catch(e => {
+        res.send({
+            err_code: -2,
+            err_msg: e.message
+        });
+    })
+};

@@ -20,6 +20,7 @@ router.post('/posts', article.createItem);
 
 router.put('/posts/modify', article.updateItem);
 router.get('/posts/item', article.getItem);
+router.delete('/posts/item/:id', article.deleteItem);
 
 
 router.use(error);

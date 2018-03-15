@@ -12,10 +12,22 @@
                     <el-input type="textarea" v-model="form.abstract"></el-input>
                 </el-form-item>
                 <el-form-item label="标签">
-                    <el-input v-model="form.tags"></el-input>
+                    <el-select
+                            v-model="form.tags"
+                            multiple
+                            filterable
+                            allow-create
+                            placeholder="请选择文章标签">
+                        <el-option
+                                v-for="item in options5"
+                                :key="item.value"
+                                :label="item.label"
+                                :value="item.value">
+                        </el-option>
+                    </el-select>
                 </el-form-item>
                 <el-form-item>
-                    <el-button type="primary" @click="submit">发布</el-button>
+                    <el-button type="primary" @click="handleSubmit">发布</el-button>
                 </el-form-item>
             </el-form>
         </div>
@@ -30,6 +42,7 @@
 
 <script>
     import marked from 'marked';
+
     marked.setOptions({
         renderer: new marked.Renderer(),
         gfm: true,
@@ -50,16 +63,42 @@
                     abstract: '',
                     tags: ''
                 },
-                markdown: ''
+                markdown: '',
+                postId: this.$route.params.id,
+                options5: [{
+                    value: 'HTML',
+                    label: 'HTML'
+                }, {
+                    value: 'CSS',
+                    label: 'CSS'
+                }, {
+                    value: 'JavaScript',
+                    label: 'JavaScript'
+                }],
             };
         },
         computed: {
             htmlContent() {
                 return marked(this.markdown);
+            },
+            isEdit() {
+                return !!this.postId;
+            }
+        },
+        created() {
+            if (this.isEdit) {
+                this.getItem();
             }
         },
         methods: {
-            submit() {
+            handleSubmit() {
+                if (this.isEdit) {
+                    this.update();
+                } else {
+                    this.create();
+                }
+            },
+            create() {
                 let data = {
                     title: this.form.title,
                     url: this.form.url,
@@ -68,22 +107,62 @@
                     content: this.markdown
                 };
                 this.$http.post('/posts', data).then(res => {
-                   if (res.body.err_code === 0) {
-                       this.$message({type: 'success', message: 'push success'});
-                       this.$router.push('/space/admin/posts-list');
-                   } else {
-                       this.$message({type: 'error', message: res.body.err_msg});
-                   }
+                    if (res.body.err_code === 0) {
+                        this.$message({type: 'success', message: 'push success'});
+                        this.$router.push('/space/admin/posts-list');
+                    } else {
+                        this.$message({type: 'error', message: res.body.err_msg});
+                    }
                 }).catch(err => {
                     console.log(err);
+                });
+            },
+            update() {
+                let data = {
+                    title: this.form.title,
+                    url: this.form.url,
+                    abstract: this.form.abstract,
+                    tags: this.form.tags,
+                    content: this.markdown,
+                    id: this.postId
+                };
+                this.$http.put('/posts/modify', data).then(res => {
+                    if (res.body.err_code === 0) {
+                        this.$message({type: 'success', message: 'push success'});
+                        this.$router.push('/space/admin/posts-list');
+                    } else {
+                        this.$message({type: 'error', message: res.body.err_msg});
+                    }
+                }).catch(err => {
+                    console.log(err);
+                });
+            },
+            getItem() {
+                let url = `/posts/item?id=${this.postId}`;
+                this.$http.get(url).then(res => {
+                    let body = res.body;
+                    if (body.err_code !== 0) {
+                        this.$message({type: 'error', message: 'no this file'});
+                        this.$router.push('/space/admin/posts-list');
+                        return;
+                    }
+                    let data = body.data;
+                    this.form = {
+                        title: data.title,
+                        url: data.url,
+                        abstract: data.abstract,
+                        tags: data.tags
+                    }
                 })
-                console.log('aa');
             }
         }
     }
 </script>
 
-<style>
+<style scoped>
+    .el-select {
+        width: 100%;
+    }
     .left-bar {
         position: absolute;
         top: 0;
@@ -92,6 +171,7 @@
         width: 400px;
         padding: 30px 30px 30px 0;
     }
+
     .right-bar {
         position: absolute;
         top: 30px;
@@ -101,6 +181,7 @@
         border: 1px solid #bfcbd9;
         background: #eee;
     }
+
     .markdown-wrapper {
         position: absolute;
         top: 0;
@@ -110,6 +191,7 @@
 
         background: #fff;
     }
+
     .md-input textarea {
         display: block;
         position: absolute;
@@ -125,6 +207,7 @@
         border-radius: 0;
         font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
     }
+
     .html-wrapper {
         position: absolute;
         left: 50%;
@@ -138,9 +221,11 @@
         color: #333;
         background: #fff;
     }
+
     p {
         margin: 0 0 10px;
     }
+
     pre {
         display: block;
         padding: 9.5px;
@@ -154,6 +239,7 @@
         border: 1px solid #ccc;
         border-radius: 4px;
     }
+
     pre code {
         padding: 0;
         font-size: inherit;
@@ -162,6 +248,7 @@
         background-color: transparent;
         border-radius: 0;
     }
+
     code {
         padding: 2px 4px;
         font-size: 90%;

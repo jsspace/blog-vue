@@ -3,8 +3,7 @@
         <header class="header">
             <el-menu :default-active="router" class="el-menu-demo" mode="horizontal" :router="true">
                 <el-menu-item index="/space/admin/posts-list">文章管理</el-menu-item>
-                <el-menu-item index="/space/admin/posts-edit">新增文章</el-menu-item>
-                <el-menu-item index="/pages/inventory">库存查询</el-menu-item>
+                <el-menu-item index="/space/admin/posts-create">新增文章</el-menu-item>
             </el-menu>
         </header>
         <section class="main-content">

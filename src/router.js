@@ -17,7 +17,12 @@ export default new Router({
             component: PostList
         },
         {
-            path: '/space/admin/posts-edit',
+            path: '/space/admin/posts-create',
+            name: 'post-create',
+            component: PostCreate
+        },
+        {
+            path: '/space/admin/posts-edit/:id',
             name: 'post-edit',
             component: PostCreate
         }
