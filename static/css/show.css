@@ -1,18 +1,21 @@
-html{
+html {
     font-size: 100px;
 }
-.detail_post{
+
+.detail_post {
     padding: 20px 20px;
     margin: 80px auto;
     width: 1000px;
     background: #fff;
     box-sizing: border-box;
 }
+
 .article__title {
     text-align: center;
     padding-top: 0.3rem;
 }
-.title{
+
+.title {
     font-size: 0.33rem;
     color: #2A2935;
     text-align: center;
@@ -24,6 +27,7 @@ html{
     font-size: 0.12rem;
     color: #999999;
 }
+
 .article__title:after {
     content: '';
     display: block;
@@ -32,6 +36,7 @@ html{
     transform: scale(1, 0.5);
     margin-top: 0.3rem;
 }
+
 .detail_post .article__content {
     color: #444;
     font-size: 0.12rem;
@@ -43,14 +48,15 @@ html{
     word-break: normal;
 }
 
-.detail_post p{
+.detail_post p {
     color: #666;
     font-size: 16px;
     line-height: 30px;
     margin-bottom: 25px;
 }
+
 @media screen and (max-width: 1000px) {
-    .detail_post{
+    .detail_post {
         padding: 0.08rem 0.12rem;
         margin: 56px 0;
         width: 100%;
@@ -58,12 +64,27 @@ html{
     }
 }
 
+.h1, .h2, .h3, h1, h2, h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
 h1 {
     font-size: 24px;
     font-weight: bold;
 }
 
-img{
+.h2, h2 {
+    font-size: 30px;
+}
+
+h3 {
+    font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+img {
     max-width: 100%;
     height: auto;
 }
@@ -71,6 +92,14 @@ img{
 .detail_post ul li {
     list-style: disc;
 }
+
 .detail_post ol li {
     list-style: decimal;
+}
+
+ol, ul {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 16px;
+    padding-left: 20px;
 }

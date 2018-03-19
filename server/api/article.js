@@ -71,7 +71,7 @@ exports.getItem = (req, res) => {
         });
         return;
     }
-    let fields = 'title url abstract tags visited like createdAt';
+    let fields = 'title url abstract tags visited like createdAt content';
     Article.findOne({_id: articleId}, fields).then(result => {
         res.send({
             data: result,

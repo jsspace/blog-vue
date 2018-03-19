@@ -152,7 +152,8 @@
                         url: data.url,
                         abstract: data.abstract,
                         tags: data.tags
-                    }
+                    };
+                    this.markdown = data.content;
                 })
             }
         }
