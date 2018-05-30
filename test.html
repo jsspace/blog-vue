@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .page {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(to bottom right, #adc6ef, #3e4c67);
+        }
+        form {
+            background: #fff;
+            width: 470px;
+            height: 600px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            border-radius: 2px;
+        }
+        .header {
+            margin-top: 20%;
+            color: #8c98cc;
+            font-size: 24px;
+            margin-bottom: 50px;
+        }
+        input {
+            width: 260px;
+            height: 60px;
+            line-height: 70px;
+            border: none;
+            outline: none;
+            border-bottom: 1px solid #8c98cc;
+            text-align: center;
+            font-size: 18px;
+        }
+        input::placeholder {
+            color: #aaa;
+        }
+        button {
+            margin-top: 100px;
+            width: 260px;
+            height: 50px;
+            border-radius: 25px;
+            background: #8c98cc;
+            outline: none;
+            border: none;
+            color: #fff;
+            font-size: 20px;
+        }
+    </style>
+
+
+</head>
+<body>
+<div class="page">
+    <form action="">
+        <h1 class="header">Mobvoi DataPortal</h1>
+
+        <input type="text" placeholder="LDAP用户名">
+        <input type="password" placeholder="LDAP密码">
+
+        <button>登录</button>
+    </form>
+</div>
+</body>
+</html>
