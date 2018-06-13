@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=1.0">
+    <title>tags | spaceblog</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/tags.css">
+</head>
+<body class="pg-index">
+<% include ../layout/header %>
+<div id="content">
+    <div class="post-list ">
+        <h1 class="title"><%= title %></h1>
+            <section class="post-list">
+                <div>
+                    <% blogs.forEach((blog, index) => {%>
+                    <article class="post post-width-tags">
+                        <header class="post-title">
+                            <a href="<%= '/post/' + blog.url %>"><%= blog.title %></a>
+                        </header>
+                        <div class="post-meta">
+                            <span><%= blog.createAt %></span>
+                        </div>
+                        <p class="post-abstract">
+                            <%= blog.abstract %>
+                        </p>
+                        <footer class="post-tags">
+                            <% blog.tags.forEach((tag, index) => { %>
+                                <a href="" class="tag"><%= tag %></a>
+                            <%})%>
+                        </footer>
+                    </article>
+                    <%});%>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>

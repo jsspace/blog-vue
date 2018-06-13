@@ -94,6 +94,12 @@ exports.renderItem = (req, res) => {
         .then(post => {
             post.markdown = marked(post.content);
             res.render('post', {blog: post});
+            return post;
+        }).then(post => {
+            let newVisited = post.visited + 1;
+            Article.update({_id: post._id}, {visited: newVisited}).then(res => {
+                console.log(res);
+            })
         })
 };
 

@@ -16,8 +16,4 @@ marked.setOptions({
     }
 });
 
-function hightOption() {
-    
-}
-
 module.exports = marked;

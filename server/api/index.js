@@ -4,9 +4,11 @@
 const article = require('./article');
 const passport = require('../passport/passport');
 const marked = require('./marked');
+const tags = require('./tags');
 
 module.exports = {
     article,
     passport,
-    marked
+    marked,
+    tags
 };

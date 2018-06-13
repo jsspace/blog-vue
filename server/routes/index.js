@@ -16,6 +16,7 @@ const account = require('../api/account');
 // === frontend ===
 router.get('/', article.renderIndex);
 router.get('/post/:url', article.renderItem);
+router.get('/tags/:tag', api.tags.getTagItem);
 
 // === account ===
 router.get('/login', account.getLogin);

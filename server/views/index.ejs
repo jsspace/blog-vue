@@ -16,7 +16,7 @@
 <% include ./layout/header %>
 <div id="content">
     <section class="post-list">
-        <div>
+        <div id="postMain">
             <% posts.forEach(function (post) { %>
             <article class="post post-width-tags">
                 <header class="post-title">
@@ -37,9 +37,13 @@
             <% }); %>
         </div>
     </section>
+    <div class="more" id="more">
+        <span class="more-btn">查看更多</span>
+    </div>
 </div>
 <% include ./layout/footer.ejs %>
 <% include ./layout/ga.ejs %>
+<script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="/js/main.js"></script>
 </body>
 </html>
