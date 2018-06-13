@@ -74,9 +74,6 @@
 </head>
 <body>
 <div class="container">
-    <div class="logo">
-        <h2>平台登录</h2>
-    </div>
     <div class="login-box">
         <form action="">
             <input type="text" id="username" placeholder="账 号" required="required" class="form-control">
@@ -97,10 +94,10 @@
             alert('数据不完整');
             return;
         }
-        let url = '/common/secretLogin';
+        let url = '/login';
         var body = {
             username: username,
-            password: md5(password)
+            password: password
         };
         $.ajax({
             url: url,
@@ -109,8 +106,7 @@
             data: JSON.stringify(body),
             success: function (response) {
                 if (response.err_code === 0) {
-                    var token = response.result;
-                    location.href = location.origin + '?token=' + token;
+                    location.href = '/space/admin/posts-list';
                 } else {
                     alert(response.err_msg);
                 }

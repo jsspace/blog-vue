@@ -3,5 +3,9 @@
  */
 const path = require('path');
 exports.historyMode = (req, res, next) => {
-    res.sendFile(path.resolve('dist/admin/index.html'));
+    if (req.user) {
+        res.sendFile(path.resolve('dist/admin/index.html'));
+    } else {
+        res.redirect('/login');
+    }
 };

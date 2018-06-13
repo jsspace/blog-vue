@@ -26,7 +26,6 @@ a {
 /* public style */
 html {
     font-size: 100px;
-
 }
 
 p {
@@ -34,7 +33,7 @@ p {
 }
 
 .pg-index {
-    background-color: #f4f4f4;
+    background-color: #f4f8fb;
 }
 
 table {
@@ -150,6 +149,11 @@ table > tbody > tr > td {
     line-height: 0.29rem;
 }
 
+.post-width-tags {
+    cursor: pointer;
+
+}
+
 .post-width-tags a {
     color: #2a2935;
 }
@@ -185,6 +189,26 @@ table > tbody > tr > td {
     border: 1px solid #32D3C3;
     padding: 0.05rem 0.09rem;
     margin: 0.04rem 0.04rem 0 0;
+}
+
+.more {
+    font-size: 0.16rem;
+    text-align: center;
+    margin-bottom: 0.36rem;
+    display: none;
+}
+
+.more-btn {
+    display: inline-block;
+    line-height: 0.3rem;
+    width: 0.9rem;
+    text-align: center;
+    border-radius: 0.45rem;
+    background-color: #32D3C3;
+    cursor: pointer;
+    font-size: 0.16rem;
+    color: #fff;
+    padding: 3px 20px;
 }
 
 @media screen and (max-width: 1200px) {
@@ -256,7 +280,6 @@ table > tbody > tr > td {
 }
 
 p {
-
     font-size: 0.16rem;
     margin: 20px 0 10px 0;
 }

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=1.0">
+    <title>tags</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/tags.css">
+</head>
+<body class="pg-index">
+<% include ../layout/header %>
+<div id="content">
+    <div class="post-list ">
+        <h1 class="title">Tags</h1>
+        <div class="tags">
+            <% for (var i = 0; i < tags.length; i++) { %>
+            <a href="/tags/<%= tags[i] %>" class="tag"><%= tags[i] %></a>
+            <% } %>
+        </div>
+    </div>
+</div>
+</body>
+</html>
