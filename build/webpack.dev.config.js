@@ -14,8 +14,8 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, '../dist'),
         publicPath: '/',
-        filename: '[name].js',
-        chunkFilename: '[name].js'
+        filename: '[name].[hash].js',
+        chunkFilename: '[name].[hash].js'
     },
     module: {
         loaders: [
@@ -59,7 +59,7 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             template: './src/index.html',
-            filename: '/admin/index.html',
+            filename: path.resolve(__dirname, '../dist/admin/index.html'),
             chunks: ['vendors', 'app']
         }),
         new webpack.DefinePlugin({

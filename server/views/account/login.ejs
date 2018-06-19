@@ -84,6 +84,7 @@
 </div>
 
 <script src="//static-cdn.ticwear.com/library/jquery-3.1.0/jquery-3.1.0.min.js"></script>
+<script src="//static-cdn.ticwear.com/library/tool/md5.min.js"></script>
 <script>
     $('#login').on('click', function (e) {
         e.preventDefault();
@@ -97,7 +98,7 @@
         let url = '/login';
         var body = {
             username: username,
-            password: password
+            password: md5(password)
         };
         $.ajax({
             url: url,
