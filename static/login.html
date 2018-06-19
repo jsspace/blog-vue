@@ -87,6 +87,7 @@
 </div>
 
 <script src="//static-cdn.ticwear.com/library/jquery-3.1.0/jquery-3.1.0.min.js"></script>
+<script src="//static-cdn.ticwear.com/library/tool/md5.min.js"></script>
 <script>
     $('#login').on('click', function (e) {
         e.preventDefault();
@@ -109,8 +110,7 @@
             data: JSON.stringify(body),
             success: function (response) {
                 if (response.err_code === 0) {
-                    var token = response.result;
-                    location.href = location.origin + '?token=' + token;
+                    location.href = '/space/admin/posts-list';
                 } else {
                     alert(response.err_msg);
                 }
