@@ -299,12 +299,13 @@ pre {
     text-align: left;
     font-family: 'Consolas', sans-serif;
     border: 1px solid transparent;
-    border-left: 2px solid yellow;
     line-height: 28px;
     transition: all 0.3s;
     font-size: 16px;
     border-radius: 5px;
+    overflow-x: auto;
 }
+
 
 .hljs,
 .hljs-tag,
