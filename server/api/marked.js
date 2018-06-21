@@ -12,7 +12,11 @@ marked.setOptions({
     smartypants: false,
     xhtml: false,
     highlight: (code, lang) => {
-        return highlight.highlightAuto(code).second_best.value;
+        let trans = highlight.highlightAuto(code);
+        if (trans.second_best) {
+            return trans.second_best.value;
+        }
+        return trans.value;
     }
 });
 
