@@ -1,5 +1,6 @@
 const marked = require('marked');
-const highlight = require('highlight.js');
+const Prism = require('prismjs');
+
 
 marked.setOptions({
     renderer: new marked.Renderer(),
@@ -12,11 +13,13 @@ marked.setOptions({
     smartypants: false,
     xhtml: false,
     highlight: (code, lang) => {
-        let trans = highlight.highlightAuto(code);
-        if (trans.second_best) {
-            return trans.second_best.value;
+        if (!lang) lang = 'js';
+        try {
+            return Prism.highlight(code, Prism.languages[lang], lang);
+        } catch (e) {
+            console.log(e);
         }
-        return trans.value;
+
     }
 });
 
