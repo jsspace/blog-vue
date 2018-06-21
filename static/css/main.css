@@ -82,6 +82,9 @@ table > tbody > tr > td {
 .header .header-container {
     width: 1000px;
     margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .header .logo {
@@ -105,23 +108,74 @@ table > tbody > tr > td {
     float: right;
 }
 
-.header li {
-    float: left;
-    margin-left: 24px;
-    height: 56px;
-    font-size: 16px;
-    line-height: 56px;
-}
-
-.header a {
+.logo a {
     color: #999999;
     display: inline-block;
     height: 56px;
 }
 
-.header a:hover {
-    text-decoration: none;
-    color: #fff;
+.site-nav-right {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.hear-search {
+    width: 150px;
+    height: 26px;
+    border-radius: 13px;
+    outline: none;
+    color: #eee;
+    padding: 0 15px;
+    background: transparent;
+    position: relative;
+    border: 1px solid #999;
+}
+
+.hear-search:hover {
+    border: 1px solid #fff;
+}
+
+.search-icon {
+    width: 20px;
+    height: 20px;
+    background: url(http://mobvoi-website.oss.aliyuncs.com/web-front-blog/6cc633ec-7491-42c2-a5ae-836ed315529f) no-repeat 50%;
+    background-size: 16px 16px;
+    position: absolute;
+    right: 10px;
+}
+
+.search-list {
+    width: 182px;
+    max-height: 300px;
+    background: #c4e0f5;
+    position: absolute;
+    top: 30px;
+    border-radius: 5px;
+    overflow-y: auto;
+    color: #333;
+    outline: none;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.search-list li {
+    margin: 6px 0;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 12px;
+}
+.search-list li:hover {
+    background: #fff;
+}
+
+.search-list li a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    color: #26a8ed;
+    line-height: 19px;
 }
 
 /* list */
@@ -260,6 +314,10 @@ table > tbody > tr > td {
 
     .post .post-tags {
         margin: 0.1rem 0;
+    }
+
+    .site-nav-right {
+        display: none;
     }
 }
 

@@ -12,6 +12,7 @@
     <title><%= blog.title %></title>
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/show.css">
+    <% include ./layout/ga %>
 </head>
 <body class="pg-index">
 <% include ./layout/header %>
@@ -24,6 +25,5 @@
         <%- blog.markdown %>
     </div>
 </article>
-<% include ./layout/ga %>
 </body>
 </html>

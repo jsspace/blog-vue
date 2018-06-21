@@ -18,6 +18,9 @@ router.get('/', article.renderIndex);
 router.get('/post/:url', article.renderItem);
 router.get('/tags/:tag', api.tags.getTagItem);
 
+// === search ===
+router.post('/search', article.searchItem);
+
 // === account ===
 router.get('/login', account.getLogin);
 router.post('/login', passport, account.postLogin);
