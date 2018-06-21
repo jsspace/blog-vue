@@ -120,6 +120,9 @@ ol, ul {
         font-size: 15px;
         margin: 15px 0;
     }
+    ol, ul {
+        font-size: 15px;
+    }
     html {
         font-size: 80px;
     }

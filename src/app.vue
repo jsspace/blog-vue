@@ -1,7 +1,7 @@
 <template>
     <div>
         <header class="header">
-            <el-menu :default-active="router" class="el-menu-demo" mode="horizontal" :router="true">
+            <el-menu :default-active="$route.path" class="el-menu-demo" mode="horizontal" :router="true">
                 <el-menu-item index="/space/admin/posts-list">文章管理</el-menu-item>
                 <el-menu-item index="/space/admin/posts-create">新增文章</el-menu-item>
             </el-menu>
