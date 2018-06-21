@@ -27,6 +27,7 @@
     "multer": "^1.2.1",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
+    "prismjs": "^1.15.0",
     "redis": "^2.6.3",
     "request": "^2.79.0",
     "serve-favicon": "~2.3.0",
