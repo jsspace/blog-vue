@@ -55,7 +55,7 @@ exports.renderIndex = (req, res) => {
             posts.forEach(item => {
                 item.createdAt = moment(item.createdAt).format('YYYY-MM-DD');
             });
-            res.render('index', {posts: posts});
+            res.render('index', {posts: posts, index: true});
         }).catch(err => {
         console.log(err);
     })
@@ -98,7 +98,6 @@ exports.renderItem = (req, res) => {
         }).then(post => {
             let newVisited = post.visited + 1;
             Article.update({_id: post._id}, {visited: newVisited}).then(res => {
-                console.log(res);
             })
         })
 };
@@ -156,6 +155,34 @@ exports.deleteItem = (req, res) => {
         res.send({
             err_code: -2,
             err_msg: e.message
+        });
+    })
+};
+
+// 搜索文章
+exports.searchItem = (req, res) => {
+    let key = req.body.title;
+    let data = {
+        is_delete: 0,
+        title: new RegExp(key, 'i')
+    };
+    let feilds = 'title url';
+    if (key === '') {
+        res.send({
+            data: [],
+            err_code: 0
+        });
+        return;
+    }
+    Article.find(data, feilds).then(data => {
+        res.send({
+            err_code: 0,
+            data: data
+        })
+    }).catch(e => {
+        res.send({
+            err_code: -1,
+            err_msg: '查询数据库错误'
         });
     })
 };

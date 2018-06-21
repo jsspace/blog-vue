@@ -2,6 +2,8 @@
  * Created by minyi on 2018/5/4.
  */
 (function () {
+    var $searchList = $('#searchList');
+    
     var indexTask = {
         data: {
             page: 1,
@@ -14,6 +16,7 @@
         registerEvent: function () {
             this.showMoreEvent();
             this.articleEvent();
+            this.search();
         },
         getPosts: function (page, size, cb) {
             var url = '/posts?page=' + page + '&size=' + size;
@@ -66,6 +69,39 @@
                 var url = $(this).find('header').find('a').attr('href');
                 location.href = url;
             })
+        },
+        search: function () {
+            var that = this;
+            var $searchInput = $('#searchInput');
+            $searchInput.on('input', function () {
+                var key = $.trim($searchInput.val());
+                that.getAllPosts(key);
+            });
+        },
+        getAllPosts: function getAllPosts(key) {
+            var that = this;
+            if (getAllPosts.cache) {
+                this.filterData(getAllPosts.cache, key, 'posts');
+                return;
+            }
+            $.ajax({
+                url: '/search',
+                method: 'post',
+                data: JSON.stringify({title: key}),
+                contentType: 'application/json'
+            }).done(function (res) {
+                if (res.err_code !== 0) return;
+                that.createList(res.data);
+            }).fail(function (err) {
+                console.log(err);
+            })
+        },
+        createList: function createList(data) {
+            var htmlStr = '';
+            data.forEach(function (item) {
+                htmlStr += '<li><a href="/post/' + item.url + '">' + item.title + '</a></li>';
+            });
+            $searchList.html(htmlStr);
         }
     };
     indexTask.init();
