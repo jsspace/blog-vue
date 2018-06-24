@@ -49,10 +49,10 @@ html {
 }
 
 .detail_post p {
-    color: #555;
+    color: #333;
     font-size: 16px;
     line-height: 30px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 @media screen and (max-width: 1000px) {
@@ -299,7 +299,6 @@ pre code {
 
     .detail_post p {
         font-size: 15px;
-        margin: 15px 0;
     }
     ol, ul {
         font-size: 15px;
