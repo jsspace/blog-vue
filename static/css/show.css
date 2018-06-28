@@ -2,6 +2,10 @@ html {
     font-size: 100px;
 }
 
+body {
+    background: #fff;
+}
+
 .detail_post {
     padding: 20px 20px;
     margin: 80px auto;
@@ -51,8 +55,8 @@ html {
 .detail_post p {
     color: #333;
     font-size: 16px;
-    line-height: 30px;
-    margin-bottom: 8px;
+    line-height: 1.8;
+    margin-bottom: 15px;
 }
 
 @media screen and (max-width: 1000px) {
