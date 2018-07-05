@@ -8,12 +8,12 @@ const path = require('path');
 let Article = require('../models/article.js');
 let _ = require('lodash');
 
-const sitemap = sm.createSitemap ({
-    hostname: 'http://spaceblog.cn',
-    cacheTime: 0
-});
-
 function updateSitemap() {
+    const sitemap = sm.createSitemap ({
+        hostname: 'http://spaceblog.cn',
+        cacheTime: 0
+    });
+
     let data = {
         is_delete: 0
     };
