@@ -14,6 +14,10 @@ let ArticleSchema = mongoose.Schema({
         type: Date,
         default: Date.now
     },
+    updatedAt: {
+        type: Date,
+        default: Date.now
+    },
     visited: {
         type: Number,
         default: 0
