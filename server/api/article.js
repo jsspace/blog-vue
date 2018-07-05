@@ -4,6 +4,7 @@
 let Article = require('../models/article.js');
 let moment = require('moment');
 let marked = require('../api').marked;
+let updateSitemap = require('./sitemap');
 
 // 获取接口数据
 exports.getList = (req, res) => {
@@ -56,6 +57,8 @@ exports.renderIndex = (req, res) => {
                 item.createdAt = moment(item.createdAt).format('YYYY-MM-DD');
             });
             res.render('index', {posts: posts, index: true});
+            // 更新sitemap
+            process.nextTick(updateSitemap);
         }).catch(err => {
         console.log(err);
     })
@@ -127,12 +130,15 @@ exports.updateItem = (req, res) => {
         url: body.url,
         abstract: body.abstract,
         content: body.content,
-        tags: body.tags
+        tags: body.tags,
+        updatedAt: new Date()
     };
     Article.update({_id: id}, data).then(result => {
         res.send({
             err_code: 0
         });
+        // 更新sitemap
+        process.nextTick(updateSitemap);
     }).catch(e => {
         res.send({
             err_code: -2,
@@ -151,6 +157,8 @@ exports.deleteItem = (req, res) => {
         res.send({
             err_code: 0
         });
+        // 更新sitemap
+        process.nextTick(updateSitemap);
     }).catch(e => {
         res.send({
             err_code: -2,
