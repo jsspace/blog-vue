@@ -76,6 +76,7 @@ exports.getItem = (req, res) => {
     }
     let fields = 'title url abstract tags visited like createdAt content';
     Article.findOne({_id: articleId}, fields).then(result => {
+        result.html = marked(result.content);
         res.send({
             data: result,
             err_code: 0
