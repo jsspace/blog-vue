@@ -13,7 +13,7 @@ const session = require('express-session');
 const compression = require('compression');
 var mongoose = require('mongoose');
 
-var db = mongoose.connect('mongodb://localhost/blog').then(() => {
+var db = mongoose.connect('mongodb://10.1.210.12/blog').then(() => {
     console.log('--数据库连接成功--');
 }).catch(err => {
     console.log('数据库连接失败：' + err);

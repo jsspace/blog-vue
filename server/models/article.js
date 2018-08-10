@@ -25,6 +25,9 @@ let ArticleSchema = mongoose.Schema({
     is_delete: {
         type: Number,
         default: 0
+    },
+    miniGramLink: {
+        type: String
     }
 });
 

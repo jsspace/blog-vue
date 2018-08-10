@@ -6,3 +6,4 @@ bower_components/*
 .idea
 public/images
 dist
+sitemap.xml

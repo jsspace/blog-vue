@@ -30,6 +30,7 @@
     "prismjs": "^1.15.0",
     "redis": "^2.6.3",
     "request": "^2.79.0",
+    "request-promise": "^4.2.2",
     "serve-favicon": "~2.3.0",
     "sitemap": "^1.13.0",
     "underscore": "^1.8.3"

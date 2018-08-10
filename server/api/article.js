@@ -5,6 +5,8 @@ let Article = require('../models/article.js');
 let moment = require('moment');
 let marked = require('../api').marked;
 let updateSitemap = require('./sitemap');
+let wechat = require('../util/wechat');
+let fs = require('fs');
 
 // 获取接口数据
 exports.getList = (req, res) => {
@@ -82,7 +84,7 @@ exports.getItem = (req, res) => {
                 data: result,
                 err_code: 0
             });
-    }).catch(e => {
+        }).catch(e => {
         res.send({
             err_code: -2,
             err_msg: e.message
@@ -95,16 +97,27 @@ exports.renderItem = (req, res) => {
     let url = req.params.url;
     let fields = 'title tags visited like createdAt content abstract';
     let data = {url: url, is_delete: 0};
-    Article.findOne(data, fields).lean()
-        .then(post => {
-            post.markdown = marked(post.content);
-            res.render('post', {blog: post});
-            return post;
-        }).then(post => {
-            let newVisited = post.visited + 1;
-            Article.update({_id: post._id}, {visited: newVisited}).then(res => {
+    Article.findOne(data, fields).lean().then(post => {
+        post.markdown = marked(post.content);
+        res.render('post', {blog: post});
+        return post;
+    }).then(post => {
+        let newVisited = post.visited + 1;
+        Article.update({_id: post._id}, {visited: newVisited});
+        return post;
+    }).then(post => {
+        if (!post.miniGramLink) {
+            let postId = post._id;
+            wechat.getToken().then(token => {
+                wechat.getScanCode(token, postId).on('error', function (e) {
+                    console.log(e);
+                }).pipe(fs.createWriteStream(`./static/img/${postId}.jpeg`));
+                Article.update({_id: postId}, {miniGramLink: `/img/${postId}.jpeg`});
             })
-        })
+        }
+    }).catch(e => {
+        console.log(e);
+    })
 };
 
 // 创建文章
