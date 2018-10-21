@@ -25,7 +25,7 @@ exports.getList = (req, res) => {
         filter.title = {$regex: reg};
     }
     if (by) {
-        sort = '-' + by;
+        sort = by;
     }
 
     let fields = 'title url abstract tags visited like createdAt';
