@@ -59,7 +59,7 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             template: './src/index.html',
-            filename: path.resolve(__dirname, '../dist/admin/index.html'),
+            filename: path.resolve(__dirname, '../dist/spaces/admin/index.html'),
             chunks: ['vendors', 'app']
         }),
         new webpack.DefinePlugin({
