@@ -32,9 +32,9 @@ router.get('/space/admin/*', historyMode);
 // ==== api ====
 router.get('/posts', article.getList);
 router.post('/posts', article.createItem);
-router.put('/posts/modify', article.updateItem);
+router.put('/posts/modify', isAdmin, article.updateItem);
 router.get('/posts/item', article.getItem);
-router.delete('/posts/item/:id', article.deleteItem);
+router.delete('/posts/item/:id', isAdmin, article.deleteItem);
 
 router.post('/user', user.createUser);
 
