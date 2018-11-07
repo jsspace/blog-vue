@@ -6,12 +6,23 @@ body {
     background: #fff;
 }
 
+.main-wrapper {
+    margin: 80px auto;
+    width: 1200px;
+}
 .detail_post {
     padding: 20px 20px;
-    margin: 80px auto;
-    width: 1000px;
+    width: 850px;
     background: #fff;
     box-sizing: border-box;
+    overflow: hidden;
+    float: left;
+}
+
+.sidebar {
+    float: right;
+    width: 330px;
+    height: 300px;
 }
 
 .article__title {
@@ -310,4 +321,75 @@ pre code {
     html {
         font-size: 80px;
     }
+}
+
+.sidebar {
+    position: relative;
+}
+
+.widget {
+    clear: both;
+    position: relative;
+    margin-bottom: 15px;
+    background-color: #fff;
+    border-radius: 4px;
+    border: 1px solid #eaeaea;
+    overflow: hidden;
+}
+
+.widget h3 {
+    font-size: 18px;
+    color: #666;
+    border-bottom: 1px solid #eaeaea;
+    background-color: #fbfbfb;
+    margin: 0;
+    padding: 11px 15px 10px;
+}
+
+.widget_ui_posts li a {
+    padding: 10px 15px 10px 150px;
+    color: #888;
+    border-bottom: solid 1px #eee;
+    overflow: hidden;
+    position: relative;
+    display: block;
+    font-size: 14px;
+}
+
+.widget_ui_posts .thumbnail {
+    float: left;
+    margin-left: -135px;
+}
+
+.widget_ui_posts .thumbnail img {
+    width: 122px;
+    height: 86px;
+    display: block;
+}
+
+.sidebar ul {
+    padding: 0;
+}
+
+.text {
+    display: block;
+    font-size: 15px;
+    color: #2a2935;
+}
+
+.widget_ui_posts li:last-child a {
+    border-bottom: none;
+}
+
+.text-tips {
+    font-size: 14px;
+    color: #999;
+    text-align: center;
+    padding: 0 0 10px;
+}
+
+.mini-gram-img {
+    display: block;
+    width: 80%;
+    margin: 10% auto;
 }
