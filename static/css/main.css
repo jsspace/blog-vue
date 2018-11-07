@@ -80,7 +80,7 @@ table > tbody > tr > td {
 }
 
 .header .header-container {
-    width: 1000px;
+    width: 1200px;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -182,7 +182,7 @@ table > tbody > tr > td {
 #content {
     padding-top: 56px;
     overflow: hidden;
-    width: 1000px;
+    width: 1200px;
     margin: 0 auto;
     min-height: 100%;
 }

@@ -16,14 +16,70 @@
 </head>
 <body class="pg-index">
 <% include ./layout/header %>
-<article class="detail_post" style="">
-    <header class="article_title">
-        <h1 class="title"><%= blog.title %></h1>
-    </header>
-    <p class="info"></p>
-    <div class="article_content">
-        <%- blog.markdown %>
+<div class="main-wrapper">
+    <article class="detail_post" style="">
+        <header class="article_title">
+            <h1 class="title"><%= blog.title %></h1>
+        </header>
+
+        <div class="article_content">
+            <%- blog.markdown %>
+        </div>
+    </article>
+    <div class="sidebar">
+        <div class="widget widget_ui_posts affix-top" style="top: 0px;">
+            <img class="mini-gram-img" src="https://static-cdn.ticwear.com/barley/35373b90-e2aa-11e8-a65f-c5ca81acae37" alt="">
+            <div class="text-tips">微信扫码体验小程序</div>
+        </div>
+        <div class="widget widget_ui_posts affix-top" style="top: 0px;"><h3>热门文章</h3>
+            <ul>
+                <li>
+                    <a href="/post/debounce" >
+                        <span class="thumbnail">
+                            <img src="https://static-cdn.ticwear.com/barley/0da289f0-e2a4-11e8-8c0b-3171c346e461" alt="">
+                        </span>
+                        <span class="text">JavaScript 函数节流和函数去抖</span>
+                        <span class="muted">2018-07-16</span></a>
+                </li>
+                <li>
+                    <a href="/post/placeholder">
+                        <span class="thumbnail">
+                            <img src="https://static-cdn.ticwear.com/barley/ea4b7670-e2a7-11e8-a65f-c5ca81acae37">
+                        </span>
+                        <span class="text">如何修改placeholder样式</span>
+                        <span class="muted">2018-08-01</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/post/cross">
+                        <span class="thumbnail">
+                            <img src="https://static-cdn.ticwear.com/barley/1623ace0-e2a8-11e8-8c0b-3171c346e461">
+                        </span>
+                        <span class="text">针对ajax跨域问题nodejs解决方案</span>
+                        <span class="muted">2018-07-16</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/post/highlightjs">
+                        <span class="thumbnail">
+                            <img src="https://static-cdn.ticwear.com/barley/e075a6b0-e2a8-11e8-8c0b-3171c346e461">
+                        </span>
+                        <span class="text">代码高亮工具highlightjs和prismjs</span>
+                        <span class="muted">2018-07-16</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/post/handsontable">
+                        <span class="thumbnail">
+                            <img src="https://static-cdn.ticwear.com/barley/941000e0-e2a8-11e8-a65f-c5ca81acae37">
+                        </span>
+                        <span class="text">Handsontable 类似 excel 表格编辑器</span>
+                        <span class="muted">2018-07-16</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
-</article>
+</div>
 </body>
 </html>
