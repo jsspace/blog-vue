@@ -1,12 +1,26 @@
-<section class="header">
-    <div class="header-container">
-        <div class="logo">
-            <a href="/">Space Blog</a>
+<div class="space-header">
+    <div class="space-header-inner">
+        <div class="header-logo"><a href="/">webfem</a></div>
+        <nav class="space-header-nav">
+            <div class="nav-item <%= page === 'index' ? 'active' : '' %>"><a href="/">首页</a></div>
+            <div class="nav-item <%= page === 'JavaScript' ? 'active' : '' %>"><a href="/tags/JavaScript">JS</a></div>
+            <div class="nav-item <%= page === 'CSS' ? 'active' : '' %>"><a href="/tags/CSS">CSS</a></div>
+            <div class="nav-item <%= page === 'nodejs' ? 'active' : '' %>"><a href="/tags/nodejs">Node.js</a></div>
+        </nav>
+        <div class="space-search-area">
+            <div class="ivu-input-wrapper ivu-input-wrapper-default ivu-input-type" style="width: 250px;"><!---->
+                <i class="ivu-icon ivu-icon-ios-search ivu-input-icon ivu-input-icon-normal ivu-input-search-icon"></i> <i
+                        class="ivu-icon ivu-icon-ios-loading ivu-load-loop ivu-input-icon ivu-input-icon-validate"></i>
+                <input
+                        id="searchInput"
+                        autocomplete="off"
+                        spellcheck="false"
+                        type="text"
+                        placeholder="请输入搜索内容"
+                        class="ivu-input ivu-input-default ivu-input-with-suffix"> <!----></div>
+            <ul class="search-list" id="searchList">
+            </ul>
         </div>
-        <div class="site-nav-right">
-            <input type="text" name="key" id="searchInput" class="hear-search" placeholder="关键字搜索">
-            <i class="search-icon"></i>
-            <ul class="search-list" id="searchList"></ul>
-        </div>
+
     </div>
-</section>
+</div>

@@ -48,7 +48,7 @@ exports.getList = (req, res) => {
 exports.renderIndex = (req, res) => {
     let filter = {is_delete: 0};
     let fields = 'title url abstract tags visited like createdAt';
-    let indexPages = 10;
+    let indexPages = 20;
     let sort = '-createdAt';
 
     Article.find(filter, fields).sort(sort).limit(indexPages).lean()
@@ -56,7 +56,7 @@ exports.renderIndex = (req, res) => {
             posts.forEach(item => {
                 item.createdAt = moment(item.createdAt).format('YYYY-MM-DD');
             });
-            res.render('index', {posts: posts, index: true});
+            res.render('index', {posts: posts, page: 'index'});
             // 更新sitemap
             process.nextTick(updateSitemap);
         }).catch(err => {
@@ -97,8 +97,9 @@ exports.renderItem = (req, res) => {
     let data = {url: url, is_delete: 0};
     Article.findOne(data, fields).lean()
         .then(post => {
+            post.createdAt = moment(post.createdAt).format('YYYY-MM-DD');
             post.markdown = marked(post.content);
-            res.render('post', {blog: post});
+            res.render('post', {blog: post, page: post.tags[0]});
             return post;
         }).then(post => {
             let newVisited = post.visited + 1;
