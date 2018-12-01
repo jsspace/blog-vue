@@ -2440,6 +2440,7 @@ code, kbd, pre, samp {
 
 .article-content pre code {
     color: #333;
+    padding: 0;
 }
 
 .article-content h1+.widget-codetool+pre, .article-content h2+.widget-codetool+pre, .article-content h3+.widget-codetool+pre {
