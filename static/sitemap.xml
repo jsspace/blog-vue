@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url> <loc>http://spaceblog.cn/post/vue-syntax-dynamic-import</loc> <lastmod>2018-07-16</lastmod> <priority>0.6</priority> </url>
-<url> <loc>http://spaceblog.cn/post/highlightjs</loc> <lastmod>2018-07-16</lastmod> <priority>0.6</priority> </url>
-<url> <loc>http://spaceblog.cn/post/wechat-oauth</loc> <lastmod>2018-07-16</lastmod> <priority>0.6</priority> </url>
-<url> <loc>http://spaceblog.cn/post/mocha-test</loc> <lastmod>2018-07-16</lastmod> <priority>0.6</priority> </url>
-<url> <loc>http://spaceblog.cn/post/handsontable</loc> <lastmod>2018-07-16</lastmod> <priority>0.6</priority> </url>
-<url> <loc>http://spaceblog.cn/post/nodejs-email</loc> <lastmod>2018-07-16</lastmod> <priority>0.6</priority> </url>
-<url> <loc>http://spaceblog.cn/post/box-shadow</loc> <lastmod>2018-07-16</lastmod> <priority>0.6</priority> </url>
-<url> <loc>http://spaceblog.cn/post/cross</loc> <lastmod>2018-07-17</lastmod> <priority>0.6</priority> </url>
-<url> <loc>http://spaceblog.cn/post/karma</loc> <lastmod>2018-07-19</lastmod> <priority>0.6</priority> </url>
-<url> <loc>http://spaceblog.cn/post/debounce</loc> <lastmod>2018-07-29</lastmod> <priority>0.6</priority> </url>
-<url> <loc>http://spaceblog.cn/post/placeholder</loc> <lastmod>2018-08-01</lastmod> <priority>0.6</priority> </url>
-<url> <loc>http://spaceblog.cn/post/package-lock</loc> <lastmod>2018-08-05</lastmod> <priority>0.6</priority> </url>
-<url> <loc>http://spaceblog.cn/post/express-error</loc> <lastmod>2018-08-15</lastmod> <priority>0.6</priority> </url>
-<url> <loc>http://spaceblog.cn/post/js-params</loc> <lastmod>2018-08-28</lastmod> <priority>0.6</priority> </url>
-<url> <loc>http://spaceblog.cn/post/check-chinese</loc> <lastmod>2018-10-11</lastmod> <priority>0.6</priority> </url>
-<url> <loc>http://spaceblog.cn/tags/webpack</loc> <lastmod>2018-06-06</lastmod> <priority>0.5</priority> </url>
-<url> <loc>http://spaceblog.cn/tags/JavaScript</loc> <lastmod>2018-06-06</lastmod> <priority>0.5</priority> </url>
-<url> <loc>http://spaceblog.cn/tags/wechat</loc> <lastmod>2018-06-06</lastmod> <priority>0.5</priority> </url>
-<url> <loc>http://spaceblog.cn/tags/nodejs</loc> <lastmod>2018-06-06</lastmod> <priority>0.5</priority> </url>
-<url> <loc>http://spaceblog.cn/tags/CSS</loc> <lastmod>2018-06-06</lastmod> <priority>0.5</priority> </url>
+<url> <loc>https://webfem.com/post/vue-syntax-dynamic-import</loc> <lastmod>2018-07-16</lastmod> <priority>0.6</priority> </url>
+<url> <loc>https://webfem.com/post/highlightjs</loc> <lastmod>2018-07-16</lastmod> <priority>0.6</priority> </url>
+<url> <loc>https://webfem.com/post/wechat-oauth</loc> <lastmod>2018-07-16</lastmod> <priority>0.6</priority> </url>
+<url> <loc>https://webfem.com/post/mocha-test</loc> <lastmod>2018-07-16</lastmod> <priority>0.6</priority> </url>
+<url> <loc>https://webfem.com/post/handsontable</loc> <lastmod>2018-07-16</lastmod> <priority>0.6</priority> </url>
+<url> <loc>https://webfem.com/post/nodejs-email</loc> <lastmod>2018-07-16</lastmod> <priority>0.6</priority> </url>
+<url> <loc>https://webfem.com/post/box-shadow</loc> <lastmod>2018-07-16</lastmod> <priority>0.6</priority> </url>
+<url> <loc>https://webfem.com/post/cross</loc> <lastmod>2018-07-17</lastmod> <priority>0.6</priority> </url>
+<url> <loc>https://webfem.com/post/karma</loc> <lastmod>2018-07-19</lastmod> <priority>0.6</priority> </url>
+<url> <loc>https://webfem.com/post/debounce</loc> <lastmod>2018-07-29</lastmod> <priority>0.6</priority> </url>
+<url> <loc>https://webfem.com/post/placeholder</loc> <lastmod>2018-08-01</lastmod> <priority>0.6</priority> </url>
+<url> <loc>https://webfem.com/post/package-lock</loc> <lastmod>2018-08-05</lastmod> <priority>0.6</priority> </url>
+<url> <loc>https://webfem.com/post/express-error</loc> <lastmod>2018-08-15</lastmod> <priority>0.6</priority> </url>
+<url> <loc>https://webfem.com/post/js-params</loc> <lastmod>2018-08-28</lastmod> <priority>0.6</priority> </url>
+<url> <loc>https://webfem.com/post/check-chinese</loc> <lastmod>2018-10-11</lastmod> <priority>0.6</priority> </url>
+<url> <loc>https://webfem.com/tags/webpack</loc> <lastmod>2018-06-06</lastmod> <priority>0.5</priority> </url>
+<url> <loc>https://webfem.com/tags/JavaScript</loc> <lastmod>2018-06-06</lastmod> <priority>0.5</priority> </url>
+<url> <loc>https://webfem.com/tags/wechat</loc> <lastmod>2018-06-06</lastmod> <priority>0.5</priority> </url>
+<url> <loc>https://webfem.com/tags/nodejs</loc> <lastmod>2018-06-06</lastmod> <priority>0.5</priority> </url>
+<url> <loc>https://webfem.com/tags/CSS</loc> <lastmod>2018-06-06</lastmod> <priority>0.5</priority> </url>
 </urlset>

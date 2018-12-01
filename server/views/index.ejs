@@ -9,8 +9,9 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="format-detection" content="telephone=no">
-    <title>space blog</title>
-    <link rel="stylesheet" href="/css/index.css">
+    <title>webfem</title>
+    <link rel="dns-prefetch" href="//static-cdn.ticwear.com">
+    <link rel="stylesheet" href="//static-cdn.ticwear.com/barley/8ca1b6c0-f52a-11e8-b296-09995b3ba834">
     <% include ./layout/ga.ejs %>
 </head>
 <body class="pg-index">
@@ -32,18 +33,18 @@
                                                 <%= post.abstract %>
                                             </div>
                                             <div class="bottom">
-                                                <img src="/img/calandar.png" alt=""
+                                                <img src="//static-cdn.ticwear.com/barley/cdc29ae0-f528-11e8-b296-09995b3ba834" alt=""
                                                      class="handle-icon">
                                                 <span class="value"><%= post.createdAt %></span>
                                                 <div class="line ivu-divider ivu-divider-vertical"><!----></div>
-                                                <img src="/img/tag.png"
+                                                <img src="//static-cdn.ticwear.com/barley/f7d3f400-f528-11e8-a602-69b71e51fd58"
                                                      class="handle-icon"> <span class="value">
                                                     <% post.tags.forEach(function (tag) { %>
                                                         <%= tag %>
                                                     <% }) %>
                                                 </span>
                                                 <div class="line ivu-divider ivu-divider-vertical"><!----></div>
-                                                <img src="/img/read-num.png"
+                                                <img src="//static-cdn.ticwear.com/barley/0953a0e0-f529-11e8-b296-09995b3ba834"
                                                      alt="" class="handle-icon"> <span class="value"><%= post.visited %></span></div>
                                             <div><!----> <!----></div>
                                         </div> <!----></a>

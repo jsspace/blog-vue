@@ -3,19 +3,13 @@
  */
 (function () {
     var $searchList = $('#searchList');
-    
+
     var indexTask = {
         data: {
             page: 1,
             size: 10,
         },
         init: function () {
-            this.getPosts(this.data.page, this.data.size);
-            this.registerEvent();
-        },
-        registerEvent: function () {
-            this.showMoreEvent();
-            this.articleEvent();
             this.search();
         },
         getPosts: function (page, size, cb) {

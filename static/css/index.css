@@ -61,7 +61,7 @@
     position: absolute;
     right: 0;
     z-index: 3;
-    background: url("/img/search.png") no-repeat center;
+    background: url("//static-cdn.ticwear.com/barley/5e866e20-f52a-11e8-b296-09995b3ba834") no-repeat center;
     background-size: 16px 16px;
 }
 
@@ -80,7 +80,7 @@ input:focus, textarea:focus, select:focus {
     flex: 1;
     width: 100%;
     margin: 56px auto 0;
-    background: url("/img/bg.png");
+    background: url("//static-cdn.ticwear.com/barley/6ec13ef0-f52a-11e8-a602-69b71e51fd58");
 }
 
 .aw-footer {
@@ -88,7 +88,7 @@ input:focus, textarea:focus, select:focus {
     font-size: 12px;
     text-align: center;
     color: #666;
-    background: url("/img/bg.png");
+    background: url("//static-cdn.ticwear.com/barley/6ec13ef0-f52a-11e8-a602-69b71e51fd58");
     border-top: 1px solid #ddd;
 }
 
@@ -2428,7 +2428,7 @@ code, kbd, pre, samp {
     line-height: 1.45;
     max-height: 35em;
     position: relative;
-    background: url(/img/blueprint.png) #F6F6F6;
+    background: url(//static-cdn.ticwear.com/barley/516d28a0-f52a-11e8-b296-09995b3ba834) #F6F6F6;
     -moz-background-size: 30px,30px;
     -o-background-size: 30px,30px;
     -webkit-background-size: 30px,30px;
