@@ -10,6 +10,9 @@
             size: 10,
         },
         init: function () {
+            this.registerEvent();
+        },
+        registerEvent: function () {
             this.search();
         },
         getPosts: function (page, size, cb) {
@@ -50,9 +53,9 @@
                     '                </div>' +
                     '                <p class="post-abstract">' + post.abstract + '</p>' +
                     '                <footer class="post-tags">' +
-                                        post.tags.map(function (tag) {
-                                            return '<a href="/tags/' + tag + '" class="tag">' + tag + '</a>'
-                                        }).join(' ') +
+                    post.tags.map(function (tag) {
+                        return '<a href="/tags/' + tag + '" class="tag">' + tag + '</a>'
+                    }).join(' ') +
                     '                </footer>' +
                     '            </article>'
             });

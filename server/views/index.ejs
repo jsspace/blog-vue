@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cn">
 <head>
     <meta charset="UTF-8">
     <meta name="keywords" content="space, blog, 前端">
@@ -9,40 +9,69 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="format-detection" content="telephone=no">
-    <title>space blog</title>
-    <link rel="stylesheet" href="/css/main.css">
+    <title>webfem</title>
+    <link rel="dns-prefetch" href="//static-cdn.ticwear.com">
+    <link rel="stylesheet" href="//static-cdn.ticwear.com/barley/4fb48d10-f533-11e8-a602-69b71e51fd58">
     <% include ./layout/ga.ejs %>
 </head>
 <body class="pg-index">
-<% include ./layout/header %>
-<div id="content">
-    <section class="post-list">
-        <div id="postMain">
-            <% posts.forEach(function (post) { %>
-            <article class="post post-width-tags">
-                <header class="post-title">
-                    <a href="<%= '/post/' + post.url %>"><%= post.title %></a>
-                </header>
-                <div class="post-meta">
-                    <span><%= post.createdAt %></span>
+<div id="app">
+    <div class="space-index-layout">
+        <% include ./layout/header %>
+        <div class="space-container">
+            <div class="space-main">
+                <div class="main-content">
+                    <div class="main-content-left">
+                        <ul class="article-list">
+                            <% posts.forEach(function (post) { %>
+                                <li class="article-item">
+                                    <a class="space-article-item" href="<%= '/post/' + post.url %>">
+                                        <div class="space-article-content">
+                                            <div class="middle"><p class="middle-title"><%= post.title %></p> <!---->
+                                            </div>
+                                            <div class="article-excerpt">
+                                                <%= post.abstract %>
+                                            </div>
+                                            <div class="bottom">
+                                                <img src="//static-cdn.ticwear.com/barley/cdc29ae0-f528-11e8-b296-09995b3ba834" alt=""
+                                                     class="handle-icon">
+                                                <span class="value"><%= post.createdAt %></span>
+                                                <div class="line ivu-divider ivu-divider-vertical"><!----></div>
+                                                <img src="//static-cdn.ticwear.com/barley/f7d3f400-f528-11e8-a602-69b71e51fd58"
+                                                     class="handle-icon"> <span class="value">
+                                                    <% post.tags.forEach(function (tag) { %>
+                                                        <%= tag %>
+                                                    <% }) %>
+                                                </span>
+                                                <div class="line ivu-divider ivu-divider-vertical"><!----></div>
+                                                <img src="//static-cdn.ticwear.com/barley/0953a0e0-f529-11e8-b296-09995b3ba834"
+                                                     alt="" class="handle-icon"> <span class="value"><%= post.visited %></span></div>
+                                            <div><!----> <!----></div>
+                                        </div> <!----></a>
+                                </li>
+                            <% }); %>
+
+                            <div class="show-loading" style="display: none;">
+                                <div class="ivu-spin ivu-spin-default ivu-spin-show-text">
+                                    <div class="ivu-spin-main"><span class="ivu-spin-dot"></span>
+                                        <div class="ivu-spin-text">
+                                            <i class="demo-spin-icon-load ivu-icon ivu-icon-ios-loading"
+                                               style="font-size: 18px;"></i></div>
+                                    </div>
+                                </div>
+                                <span class="text">加载中...</span></div>
+                        </ul>
+                    </div>
+                    <div class="main-content-right">
+                        <% include ./layout/hot %>
+                    </div>
                 </div>
-                <p class="post-abstract">
-                    <%= post.abstract %>
-                </p>
-                <footer class="post-tags">
-                    <% post.tags.forEach(function (tag) { %>
-                    <a href="/tags/<%= tag %>" class="tag"><%= tag %></a>
-                    <% }) %>
-                </footer>
-            </article>
-            <% }); %>
+            </div>
         </div>
-    </section>
-    <div class="more" id="more">
-        <span class="more-btn">查看更多</span>
+        <% include ./layout/footer.ejs %>
     </div>
 </div>
-<% include ./layout/footer.ejs %>
+
 <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="/js/main.js"></script>
 </body>

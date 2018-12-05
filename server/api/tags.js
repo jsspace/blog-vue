@@ -3,6 +3,7 @@
  */
 let Article = require('../models/article.js');
 let _ = require('lodash');
+let moment = require('moment');
 
 exports.getTagPage = (req, res, next) => {
     Article.find({}, (err, posts) => {
@@ -20,10 +21,19 @@ exports.getTagPage = (req, res, next) => {
 
 exports.getTagItem = (req, res, next) => {
     let tag = req.params.tag;
-    Article.find({tags: tag}, function (err, posts) {
-        if (err) {
-            return next(err);
-        }
-        res.render('tags/tag', {title: tag, blogs: posts});
+    let filter = {is_delete: 0, tags: [tag]};
+    let fields = 'title url abstract tags visited like createdAt';
+    let indexPages = 20;
+    let sort = '-createdAt';
+
+    Article.find(filter, fields).sort(sort).limit(indexPages).lean()
+        .then(posts => {
+            posts.forEach(item => {
+                item.createdAt = moment(item.createdAt).format('YYYY-MM-DD');
+            });
+            res.render('index', {posts: posts, page: tag});
+        }).catch(err => {
+        console.log(err);
     })
 };
+

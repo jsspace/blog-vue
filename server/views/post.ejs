@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cn">
 <head>
     <meta charset="UTF-8">
     <meta name="keywords" content="space, blog, 前端,<%= blog.title %>">
@@ -10,76 +10,54 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="format-detection" content="telephone=no">
     <title><%= blog.title %></title>
-    <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/css/show.css">
+    <link rel="dns-prefetch" href="//static-cdn.ticwear.com">
+    <link rel="stylesheet" href="//static-cdn.ticwear.com/barley/4fb48d10-f533-11e8-a602-69b71e51fd58">
     <% include ./layout/ga %>
 </head>
 <body class="pg-index">
-<% include ./layout/header %>
-<div class="main-wrapper">
-    <article class="detail_post" style="">
-        <header class="article_title">
-            <h1 class="title"><%= blog.title %></h1>
-        </header>
-
-        <div class="article_content">
-            <%- blog.markdown %>
+<div id="app">
+    <div class="space-index-layout">
+        <% include ./layout/header %>
+        <div class="space-container">
+            <div class="space-main">
+                <div class="main-content">
+                    <div class="main-content-left">
+                        <div class="article-detail">
+                            <div class="article-header">
+                                <h1 class="article-title"><%= blog.title %></h1>
+                                <div class="bottom">
+                                    <img src="//static-cdn.ticwear.com/barley/cdc29ae0-f528-11e8-b296-09995b3ba834"
+                                         alt=""
+                                         class="handle-icon"> <span class="value"><%= blog.createdAt %></span>
+                                    <div class="line ivu-divider ivu-divider-vertical"><!----></div>
+                                    <img src="//static-cdn.ticwear.com/barley/f7d3f400-f528-11e8-a602-69b71e51fd58"
+                                         class="handle-icon"> <span class="value">
+                                        <% blog.tags.forEach(function (tag) { %>
+                                            <%= tag %>
+                                        <% }) %>
+                                    </span>
+                                    <div class="line ivu-divider ivu-divider-vertical"><!----></div>
+                                    <img src="//static-cdn.ticwear.com/barley/0953a0e0-f529-11e8-b296-09995b3ba834"
+                                         alt=""
+                                         class="handle-icon"> <span class="value">
+                                        <%= blog.visited %>
+                                    </span></div>
+                            </div>
+                            <div class="article-content">
+                                <%- blog.markdown %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-content-right">
+                        <% include ./layout/hot %>
+                    </div>
+                </div>
+            </div>
         </div>
-    </article>
-    <div class="sidebar">
-        <div class="widget widget_ui_posts affix-top" style="top: 0px;">
-            <img class="mini-gram-img" src="https://static-cdn.ticwear.com/barley/35373b90-e2aa-11e8-a65f-c5ca81acae37" alt="">
-            <div class="text-tips">微信扫码体验小程序</div>
-        </div>
-        <div class="widget widget_ui_posts affix-top" style="top: 0px;"><h3>热门文章</h3>
-            <ul>
-                <li>
-                    <a href="/post/debounce" >
-                        <span class="thumbnail">
-                            <img src="https://static-cdn.ticwear.com/barley/0da289f0-e2a4-11e8-8c0b-3171c346e461" alt="">
-                        </span>
-                        <span class="text">JavaScript 函数节流和函数去抖</span>
-                        <span class="muted">2018-07-16</span></a>
-                </li>
-                <li>
-                    <a href="/post/placeholder">
-                        <span class="thumbnail">
-                            <img src="https://static-cdn.ticwear.com/barley/ea4b7670-e2a7-11e8-a65f-c5ca81acae37">
-                        </span>
-                        <span class="text">如何修改placeholder样式</span>
-                        <span class="muted">2018-08-01</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/post/cross">
-                        <span class="thumbnail">
-                            <img src="https://static-cdn.ticwear.com/barley/1623ace0-e2a8-11e8-8c0b-3171c346e461">
-                        </span>
-                        <span class="text">针对ajax跨域问题nodejs解决方案</span>
-                        <span class="muted">2018-07-16</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/post/highlightjs">
-                        <span class="thumbnail">
-                            <img src="https://static-cdn.ticwear.com/barley/e075a6b0-e2a8-11e8-8c0b-3171c346e461">
-                        </span>
-                        <span class="text">代码高亮工具highlightjs和prismjs</span>
-                        <span class="muted">2018-07-16</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="/post/handsontable">
-                        <span class="thumbnail">
-                            <img src="https://static-cdn.ticwear.com/barley/941000e0-e2a8-11e8-a65f-c5ca81acae37">
-                        </span>
-                        <span class="text">Handsontable 类似 excel 表格编辑器</span>
-                        <span class="muted">2018-07-16</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
+        <% include ./layout/footer.ejs %>
     </div>
 </div>
+<script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="/js/search.js"></script>
 </body>
 </html>

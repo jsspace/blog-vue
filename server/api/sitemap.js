@@ -10,7 +10,7 @@ let _ = require('lodash');
 
 function updateSitemap() {
     const sitemap = sm.createSitemap ({
-        hostname: 'http://spaceblog.cn',
+        hostname: 'https://webfem.com',
         cacheTime: 0
     });
 
