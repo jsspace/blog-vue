@@ -34,7 +34,6 @@ exports.getList = (req, res) => {
         Article.find(filter, fields).sort(sort).skip(skip).limit(limit).exec(),
         Article.count(filter)
     ]).then(([data, total]) => {
-        let totalPage = Math.ceil(total / limit);
         let hasMore = page * limit < total;
         res.send({
             data: data,
@@ -57,8 +56,6 @@ exports.renderIndex = (req, res) => {
                 item.createdAt = moment(item.createdAt).format('YYYY-MM-DD');
             });
             res.render('index', {posts: posts, page: 'index'});
-            // 更新sitemap
-            process.nextTick(updateSitemap);
         }).catch(err => {
         console.log(err);
     })
