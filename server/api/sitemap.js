@@ -41,7 +41,7 @@ function updateSitemap() {
                 });
             });
 
-            fs.writeFile(path.resolve('./static/sitemap.xml'), sitemap.toXML(), function (err) {
+            fs.writeFile(path.resolve('./dist/sitemap.xml'), sitemap.toXML(), function (err) {
                 if (err) {
                     console.log(err);
                 }
