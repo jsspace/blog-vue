@@ -12,6 +12,8 @@ const api = require('../api');
 const error = require('./error');
 const passport = require('../passport/passport.js');
 const account = require('../api/account');
+const Upload = require('../api/upload');
+const uplaod = new Upload();
 
 // === frontend ===
 router.get('/', article.renderIndex);
@@ -35,6 +37,9 @@ router.post('/posts', article.createItem);
 router.put('/posts/modify', isAdmin, article.updateItem);
 router.get('/posts/item', article.getItem);
 router.delete('/posts/item/:id', isAdmin, article.deleteItem);
+
+// ==== upload ====
+router.post('/upload', uplaod.upload.bind(uplaod));
 
 router.post('/user', user.createUser);
 
