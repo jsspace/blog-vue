@@ -12,6 +12,9 @@
                             size="small"
                             @click="handleEdit(scope.row._id)">编辑</el-button>
                     <el-button
+                        size="small"
+                        @click="handleView(scope)">查看</el-button>
+                    <el-button
                             size="small"
                             type="danger"
                             @click="handleDelete(scope.row._id)">删除</el-button>
@@ -94,6 +97,9 @@
                     }
                     this.$message({type: 'success', message: 'delete success'});
                 })
+            },
+            handleView(post) {
+                window.open(location.origin + '/post/' + post.row.url, "_blank");
             }
         }
     }
