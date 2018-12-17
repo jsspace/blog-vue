@@ -15,23 +15,20 @@ router.use((req, res, next) => {
 
 // development error handler
 // will print stacktrace
-if (process.env.NODE_ENV === 'development') {
-    router.use((err, req, res, next) => {
-        res.status(err.status || 500);
+router.use((err, req, res, next) => {
+    res.status(err.status || 500);
+    if (err.status === 404 || err.message === '404') {
+        res.render('404', {page: 404});
+        return;
+    }
+    if (process.env.NODE_ENV === 'development') {
         res.send({
             message: err.message,
             error: err
         });
-    });
-}
-
-// production error handler
-// no stacktraces leaked to user
-router.use((err, req, res, next) => {
-    res.status(err.status || 500);
-    res.send({
-        message: err.message,
-    });
+        return;
+    }
+    res.render('500', {page: 500});
 });
 
 

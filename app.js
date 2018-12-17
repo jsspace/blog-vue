@@ -47,6 +47,26 @@ app.use(passport.session());
 // handle routes
 app.use(router);
 
+
+app.use((err, req, res, next) => {
+    if (err.status === 404 || err === 404) {
+        res.statusCode = 404;
+        res.render('404', {page: 404});
+        return;
+    }
+    res.statusCode = 500;
+    if (process.env.NODE_ENV === 'development') {
+        res.send({
+            message: err.message,
+            error: err
+        });
+        return;
+    }
+    res.send({
+        message: err.message,
+    });
+});
+
 module.exports = app;
 
 
