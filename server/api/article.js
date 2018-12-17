@@ -88,17 +88,22 @@ exports.getItem = (req, res) => {
 };
 
 // 渲染单篇文章
-exports.renderItem = (req, res) => {
+exports.renderItem = (req, res, next) => {
     let url = req.params.url;
     let fields = 'title tags visited like createdAt content abstract';
     let data = {url: url, is_delete: 0};
     Article.findOne(data, fields).lean()
         .then(post => {
-            post.createdAt = moment(post.createdAt).format('YYYY-MM-DD');
-            post.markdown = marked(post.content);
-            res.render('post', {blog: post, page: post.tags[0]});
+            if (!post) {
+                next(404);
+            } else {
+                post.createdAt = moment(post.createdAt).format('YYYY-MM-DD');
+                post.markdown = marked(post.content);
+                res.render('post', {blog: post, page: post.tags[0]});
+            }
             return post;
         }).then(post => {
+            if (!post) return;
             let newVisited = post.visited + 1;
             Article.update({_id: post._id}, {visited: newVisited}).then(res => {
             })
