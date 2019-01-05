@@ -790,6 +790,10 @@ input:focus, textarea:focus, select:focus {
     border-bottom: 1px solid #e9e9e9
 }
 
+.space-article-item:hover {
+    background-color: rgba(0,0,0,.01);
+}
+
 .space-article-list .article-list .article-item:last-child {
     border-bottom: 0
 }
@@ -806,6 +810,12 @@ input:focus, textarea:focus, select:focus {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     cursor: pointer;
+}
+
+.fix-bar {
+    position: fixed;
+    top: 75px;
+    width: 296px;
 }
 
 .space-article-item .space-article-content {
@@ -2130,7 +2140,7 @@ html [type=button] {
 
 .space-main .double-mouth {
     background-color: #fff;
-    padding: 20px;
+    padding: 20px 0;
     margin-bottom: 20px
 }
 
@@ -2140,7 +2150,8 @@ html [type=button] {
     -ms-flex-pack: justify;
     justify-content: space-between;
     -ms-flex-align: center;
-    align-items: center
+    align-items: center;
+    padding: 0 20px;
 }
 
 .space-main .double-mouth .title-area .title-text {
@@ -2152,7 +2163,8 @@ html [type=button] {
 
 .space-main .double-mouth .title-area .title-link {
     font-size: 14px;
-    color: #3c8bff
+    color: #3c8bff;
+    padding: 0 20px;
 }
 
 .space-main .double-mouth .double-mouth-list {
@@ -2160,13 +2172,13 @@ html [type=button] {
 }
 
 .space-main .double-mouth .double-mouth-list .double-mouth-item {
-    margin-top: 18px;
-
+    padding: 11px 20px;
+    cursor: pointer;
+    color: #8590a7;
 }
 .space-main .double-mouth .double-mouth-list .double-mouth-item  a {
-
     font-size: 14px;
-    color: #8590a7;
+    color: inherit;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -2175,8 +2187,9 @@ html [type=button] {
     width: 100%;
 }
 
-.space-main .double-mouth .double-mouth-list .double-mouth-item a:hover {
-    color: #3c8bff
+.space-main .double-mouth .double-mouth-list .double-mouth-item:hover {
+    color: #3c8bff;
+    background-color: hsla(0, 0%, 75.1%,.1);
 }
 
 body, div, html {
@@ -2557,7 +2570,7 @@ pre code {
 }
 .mini-gram-img {
     display: block;
-    width: 80%;
+    width: 72%;
     margin: 0 auto;
 }
 .text-tips {
@@ -2594,6 +2607,7 @@ pre code {
     .space-article-item {
         padding: 15px 18px 20px;
     }
+
     .space-article-item .space-article-content {
         -ms-flex: 1;
         flex: 1;

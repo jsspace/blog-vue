@@ -3,6 +3,7 @@
  */
 (function () {
     var $searchList = $('#searchList');
+    var $miniProgram = $('#miniProgram');
 
     var indexTask = {
         data: {
@@ -103,8 +104,18 @@
             } else {
                 $searchList.hide();
             }
-
         }
     };
     indexTask.init();
+    fixBar();
+    $(window).scroll(fixBar);
+    function fixBar () {
+        if ($(document).scrollTop() > 331) {
+            $miniProgram.addClass('fix-bar');
+        }
+
+        if ($(document).scrollTop() < 338) {
+            $miniProgram.removeClass('fix-bar');
+        }
+    }
 })();
