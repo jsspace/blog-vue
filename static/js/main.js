@@ -4,6 +4,7 @@
 (function () {
     var $searchList = $('#searchList');
     var $loading = $('#loading');
+    var $miniProgram = $('#miniProgram');
     var hasMore = true;
     var page = 1;
 
@@ -112,13 +113,10 @@
         scrollEvent: function () {
             var that = this;
             $(window).scroll(function () {
-                console.log('sc');
                 var topHeight = $(window).height() + $(document).scrollTop();
                 var noLoading = $('#loading').is(':hidden');
-                console.log($('#miniProgram').offset().top);
-                if ($('#miniProgram').scrollTop() < 0) {
-                    $('#miniProgram').scrollTop(60);
-                }
+                fixBar();
+                if (page !== 'index') return;
                 if (topHeight >= $(document).height() && noLoading) {
                     if (hasMore) {
                         $loading.show();
@@ -142,5 +140,15 @@
         }
     };
     indexTask.init();
+    fixBar();
+    function fixBar () {
+        if ($(document).scrollTop() > 331) {
+            $miniProgram.addClass('fix-bar');
+        }
+
+        if ($(document).scrollTop() < 338) {
+            $miniProgram.removeClass('fix-bar');
+        }
+    }
 
 })();
