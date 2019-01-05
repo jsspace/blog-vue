@@ -11,7 +11,7 @@
     <meta name="format-detection" content="telephone=no">
     <title>webfem</title>
     <link rel="dns-prefetch" href="//static-cdn.ticwear.com">
-    <link rel="stylesheet" href="//static-cdn.ticwear.com/barley/4765e4e0-fe7c-11e8-a602-69b71e51fd58">
+    <link rel="stylesheet" href="https://static-cdn.ticwear.com/barley/606fe0d0-10c4-11e9-884f-d77d8ed3cd57">
 </head>
 <body class="pg-index">
 <div id="app">
@@ -21,7 +21,7 @@
             <div class="space-main">
                 <div class="main-content">
                     <div class="main-content-left">
-                        <ul class="article-list">
+                        <ul class="article-list" id="postMain">
                             <% posts.forEach(function (post) { %>
                                 <li class="article-item">
                                     <a class="space-article-item" href="<%= '/post/' + post.url %>">
@@ -49,17 +49,10 @@
                                         </div> <!----></a>
                                 </li>
                             <% }); %>
-
-                            <div class="show-loading" style="display: none;">
-                                <div class="ivu-spin ivu-spin-default ivu-spin-show-text">
-                                    <div class="ivu-spin-main"><span class="ivu-spin-dot"></span>
-                                        <div class="ivu-spin-text">
-                                            <i class="demo-spin-icon-load ivu-icon ivu-icon-ios-loading"
-                                               style="font-size: 18px;"></i></div>
-                                    </div>
-                                </div>
-                                <span class="text">加载中...</span></div>
                         </ul>
+                        <div class="show-loading" id="loading" style="display: none">
+                            <span class="text">加载中...</span>
+                        </div>
                     </div>
                     <div class="main-content-right">
                         <% include ./layout/hot %>
@@ -71,7 +64,7 @@
     </div>
 </div>
 <% include ./layout/ga.ejs %>
-<script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="//static-cdn.ticwear.com/barley/cf0acf10-10c3-11e9-884f-d77d8ed3cd57"></script>
 <script type="text/javascript" src="/js/main.js"></script>
 </body>
 </html>

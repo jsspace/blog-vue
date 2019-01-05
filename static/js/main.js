@@ -3,6 +3,9 @@
  */
 (function () {
     var $searchList = $('#searchList');
+    var $loading = $('#loading');
+    var hasMore = true;
+    var page = 1;
 
     var indexTask = {
         data: {
@@ -11,16 +14,12 @@
         },
         init: function () {
             this.search();
+            this.scrollEvent();
         },
         getPosts: function (page, size, cb) {
             var url = '/posts?page=' + page + '&size=' + size;
             var that = this;
             $.get(url, function (res) {
-                if (res.hasMore) {
-                    that.showMore();
-                } else {
-                    that.hideMore();
-                }
                 if (cb) cb(res);
             })
         },
@@ -41,20 +40,29 @@
             var str = '';
             data.forEach(post => {
                 str +=
-                    '<article class="post post-width-tags">' +
-                    '                <header class="post-title">' +
-                    '                    <a href="/post/' + post.url + '">' +  post.title + '</a>' +
-                    '                </header>' +
-                    '                <div class="post-meta">' +
-                    '                    <span>' + post.createdAt + '</span>' +
-                    '                </div>' +
-                    '                <p class="post-abstract">' + post.abstract + '</p>' +
-                    '                <footer class="post-tags">' +
-                                        post.tags.map(function (tag) {
-                                            return '<a href="/tags/' + tag + '" class="tag">' + tag + '</a>'
-                                        }).join(' ') +
-                    '                </footer>' +
-                    '            </article>'
+                    '<li class="article-item">\n' +
+                    '                                    <a class="space-article-item" href="/post/' + post.url +'">\n' +
+                    '                                        <div class="space-article-content">\n' +
+                    '                                            <div class="middle"><p class="middle-title">'+ post.title + '</p> <!---->\n' +
+                    '                                            </div>\n' +
+                    '                                            <div class="article-excerpt">\n' +
+                                                                   post.abstract  +
+                    '                                            </div>\n' +
+                    '                                            <div class="bottom">\n' +
+                    '                                                <img src="//static-cdn.ticwear.com/barley/cdc29ae0-f528-11e8-b296-09995b3ba834" alt=""\n' +
+                    '                                                     class="handle-icon">\n' +
+                    '                                                <span class="value">'+ post.createdAt + '</span>\n' +
+                    '                                                <div class="line ivu-divider ivu-divider-vertical"><!----></div>\n' +
+                    '                                                <img src="//static-cdn.ticwear.com/barley/f7d3f400-f528-11e8-a602-69b71e51fd58"\n' +
+                    '                                                     class="handle-icon"> <span class="value">\n' +
+                                                                        post.tags.join() +
+                    '                                                </span>\n' +
+                    '                                                <div class="line ivu-divider ivu-divider-vertical"><!----></div>\n' +
+                    '                                                <img src="//static-cdn.ticwear.com/barley/0953a0e0-f529-11e8-b296-09995b3ba834"\n' +
+                    '                                                     alt="" class="handle-icon"> <span class="value">'+ post.visited +'</span></div>\n' +
+                    '                                            <div><!----> <!----></div>\n' +
+                    '                                        </div> <!----></a>\n' +
+                    '                                </li>'
             });
             $('#postMain').append(str);
         },
@@ -95,8 +103,44 @@
             data.forEach(function (item) {
                 htmlStr += '<li><a href="/post/' + item.url + '">' + item.title + '</a></li>';
             });
-            $searchList.html(htmlStr);
+            if (htmlStr) {
+                $searchList.html(htmlStr).show();
+            } else {
+                $searchList.hide();
+            }
+        },
+        scrollEvent: function () {
+            var that = this;
+            $(window).scroll(function () {
+                console.log('sc');
+                var topHeight = $(window).height() + $(document).scrollTop();
+                var noLoading = $('#loading').is(':hidden');
+                console.log($('#miniProgram').offset().top);
+                if ($('#miniProgram').scrollTop() < 0) {
+                    $('#miniProgram').scrollTop(60);
+                }
+                if (topHeight >= $(document).height() && noLoading) {
+                    if (hasMore) {
+                        $loading.show();
+                        page = page + 1;
+                        that.getPosts(page, 10, function (data) {
+                            if (!data.hasMore) {
+                                hasMore = false;
+                            } else {
+                                that.fillPage(data);
+                            }
+                            that.hideLoading();
+                        });
+                    } else {
+                        that.hideLoading();
+                    }
+                }
+            });
+        },
+        hideLoading: function () {
+            $loading.hide();
         }
     };
     indexTask.init();
+
 })();

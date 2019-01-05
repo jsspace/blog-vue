@@ -98,7 +98,12 @@
             data.forEach(function (item) {
                 htmlStr += '<li><a href="/post/' + item.url + '">' + item.title + '</a></li>';
             });
-            $searchList.html(htmlStr);
+            if (htmlStr) {
+                $searchList.html(htmlStr).show();
+            } else {
+                $searchList.hide();
+            }
+
         }
     };
     indexTask.init();

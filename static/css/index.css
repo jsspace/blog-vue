@@ -764,6 +764,16 @@ input:focus, textarea:focus, select:focus {
     color: #3c8bff
 }
 
+.footer-text-copyright {
+    margin-bottom: 15px;
+}
+
+.footer-youpai-logo {
+    vertical-align: middle;
+    height: 25px;
+
+}
+
 .space-footer .icon-star {
     top: 2px;
     margin: 0 5px;
@@ -785,7 +795,7 @@ input:focus, textarea:focus, select:focus {
 }
 
 .space-article-item {
-    padding: 15px 40px 20px;
+    padding: 15px 30px 20px;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-align: center;
@@ -2025,7 +2035,7 @@ html [type=button] {
 
 .space-main .main-content {
     width: 1000px;
-    margin: 20px auto 15px;
+    margin: 20px auto 60px;
     display: -ms-flexbox;
     display: flex
 }
@@ -2068,7 +2078,8 @@ html [type=button] {
 
 .space-main .main-content .main-content-right {
     width: 296px;
-    margin-left: 20px
+    margin-left: 20px;
+    position: relative;
 }
 
 .space-banner {
@@ -2316,12 +2327,19 @@ ol, ul {
     color: #418efb;
 }
 
+.show-loading {
+    text-align: center;
+    color: #ccc;
+    font-size: 12px;
+    margin-top: 15px;
+}
+
 /* post */
 .article-detail {
     color: #333;
     line-height: 1.8;
     font-size: 15px;
-    padding: 15px 40px 20px;
+    padding: 15px 30px 20px;
     background: #ffffff;
     font-family: "open sans", "Helvetica Neue", "Microsoft Yahei", Helvetica, Arial, sans-serif;;
 }
