@@ -770,8 +770,8 @@ input:focus, textarea:focus, select:focus {
 
 .footer-youpai-logo {
     vertical-align: middle;
-    height: 25px;
-
+    height: 22px;
+    margin-bottom: 3px;
 }
 
 .space-footer .icon-star {
@@ -1408,7 +1408,7 @@ html [type=button] {
     z-index: 2;
     margin-top: 15px;
     overflow-x: hidden;
-    height: auto
+    height: auto;
 }
 
 .space-article-display .article-content div {
@@ -2494,6 +2494,21 @@ pre code {
     padding-left: 0;
 }
 
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.article-content table th {
+    background: #F3F3F3;
+}
+
+.article-content table th, .article-content table td {
+    border: 1px solid #E6E6E6;
+    padding: 5px 8px;
+    word-break: normal;
+}
+
 .article-content a {
     color: #418efb;
 }
@@ -2697,3 +2712,4 @@ a {
 .token.entity {
     cursor: help;
 }
+

@@ -31,7 +31,7 @@ exports.getTagItem = (req, res, next) => {
             posts.forEach(item => {
                 item.createdAt = moment(item.createdAt).format('YYYY-MM-DD');
             });
-            res.render('index', {posts: posts, page: tag});
+            res.render('index', {posts: posts, page: tag, title: tag});
         }).catch(err => {
         console.log(err);
     })

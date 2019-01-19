@@ -116,7 +116,7 @@
                 var topHeight = $(window).height() + $(document).scrollTop();
                 var noLoading = $('#loading').is(':hidden');
                 fixBar();
-                if (page !== 'index') return;
+                if (tag !== 'index') return;
                 if (topHeight >= $(document).height() && noLoading) {
                     if (hasMore) {
                         $loading.show();
