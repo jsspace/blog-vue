@@ -124,9 +124,8 @@
                         that.getPosts(page, 20, function (data) {
                             if (!data.hasMore) {
                                 hasMore = false;
-                            } else {
-                                that.fillPage(data);
                             }
+                            that.fillPage(data);
                             that.hideLoading();
                         });
                     } else {
