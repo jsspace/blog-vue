@@ -11,7 +11,7 @@
     var indexTask = {
         data: {
             page: 1,
-            size: 10,
+            size: 20,
         },
         init: function () {
             this.search();
@@ -121,7 +121,7 @@
                     if (hasMore) {
                         $loading.show();
                         page = page + 1;
-                        that.getPosts(page, 10, function (data) {
+                        that.getPosts(page, 20, function (data) {
                             if (!data.hasMore) {
                                 hasMore = false;
                             } else {
