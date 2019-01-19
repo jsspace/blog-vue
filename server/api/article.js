@@ -14,6 +14,7 @@ exports.getList = (req, res) => {
         page = req.query.page,
         filter = {is_delete: 0},
         sort = '-createdAt',
+        tag = req.query.tag,
         skip, reg;
 
     page = parseInt(page, 10) || 1;
@@ -23,6 +24,9 @@ exports.getList = (req, res) => {
     if (key) {
         reg = new RegExp(key, 'i');
         filter.title = {$regex: reg};
+    }
+    if (tag) {
+        filter.tags = [tag];
     }
     if (by) {
         sort = {[by]: -1};
@@ -55,7 +59,7 @@ exports.renderIndex = (req, res) => {
             posts.forEach(item => {
                 item.createdAt = moment(item.createdAt).format('YYYY-MM-DD');
             });
-            res.render('index', {posts: posts, page: 'index'});
+            res.render('index', {posts: posts, page: 'index', title: '首页'});
         }).catch(err => {
         console.log(err);
     })
