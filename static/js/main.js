@@ -52,7 +52,7 @@
                     '                                            <div class="bottom">\n' +
                     '                                                <img src="//static-cdn.ticwear.com/barley/cdc29ae0-f528-11e8-b296-09995b3ba834" alt=""\n' +
                     '                                                     class="handle-icon">\n' +
-                    '                                                <span class="value">'+ post.createdAt + '</span>\n' +
+                    '                                                <span class="value">'+ formatTime(post.createdAt) + '</span>\n' +
                     '                                                <div class="line ivu-divider ivu-divider-vertical"><!----></div>\n' +
                     '                                                <img src="//static-cdn.ticwear.com/barley/f7d3f400-f528-11e8-a602-69b71e51fd58"\n' +
                     '                                                     class="handle-icon"> <span class="value">\n' +
@@ -150,4 +150,17 @@
         }
     }
 
+    function formatTime(time) {
+        var date = new Date(time);
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        var day = date.getDate();
+
+        return [year, month, day].map(toStr).join('-')
+    }
+
+    function toStr (n) {
+        n = n.toString();
+        return n[1] ? n : '0' + n;
+    }
 })();
