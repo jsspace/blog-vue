@@ -30,6 +30,7 @@
                     <el-button type="primary" @click="handleSubmit">发布</el-button>
                 </el-form-item>
             </el-form>
+            
         </div>
         <div class="right-bar">
             <div class="markdown-wrapper">

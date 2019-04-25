@@ -12,6 +12,9 @@ const api = require('../api');
 const error = require('./error');
 const passport = require('../passport/passport.js');
 const account = require('../api/account');
+var multer = require('multer');
+var uploadConfig = multer({dest: 'uploads/'});
+
 const Upload = require('../api/upload');
 const uplaod = new Upload();
 
@@ -40,6 +43,7 @@ router.delete('/posts/item/:id', isAdmin, article.deleteItem);
 
 // ==== upload ====
 router.post('/upload', uplaod.upload.bind(uplaod));
+router.post('/profile', uploadConfig.single('file'), uplaod.uploadUpai.bind(uplaod));
 
 router.post('/user', user.createUser);
 
