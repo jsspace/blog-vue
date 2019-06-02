@@ -24,8 +24,8 @@ function updateSitemap() {
                 item.updatedAt = item.updatedAt || new Date();
                 sitemap.add({
                     url: '/post/' + item.url,
-                    priority: 0.6,
-                    lastmod: moment(item.updatedAt).format('YYYY-MM-DD')
+                    priority: 1.0,
+                    lastmod: moment().format('YYYY-MM-DD')
                 });
             });
             let tags = [];
@@ -36,8 +36,8 @@ function updateSitemap() {
             tags.forEach(tag => {
                 sitemap.add({
                     url: '/tags/' + tag,
-                    priority: 0.5,
-                    lastmod: '2018-06-06'
+                    priority: 0.8,
+                    lastmod: moment().format('YYYY-MM-DD')
                 });
             });
 
