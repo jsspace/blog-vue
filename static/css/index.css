@@ -1,7 +1,7 @@
 #app {
     width: 100%;
     height: 100%;
-    background-color: #fafafd
+    background-color: #edf0f5;
 }
 
 .space-index-layout {
@@ -80,7 +80,7 @@ input:focus, textarea:focus, select:focus {
     flex: 1;
     width: 100%;
     margin: 56px auto 0;
-    background: url("//static-cdn.ticwear.com/barley/6ec13ef0-f52a-11e8-a602-69b71e51fd58");
+    background: #edf0f5;
 }
 
 .aw-footer {
@@ -107,7 +107,7 @@ input:focus, textarea:focus, select:focus {
     justify-content: space-between;
     display: -ms-flexbox;
     display: flex;
-    width: 1000px;
+    width: 1200px;
     height: 56px;
     padding: 0;
     margin: 0 auto;
@@ -815,7 +815,7 @@ input:focus, textarea:focus, select:focus {
 .fix-bar {
     position: fixed;
     top: 75px;
-    width: 296px;
+    width: 330px;
 }
 
 .space-article-item .space-article-content {
@@ -947,7 +947,7 @@ input:focus, textarea:focus, select:focus {
 }
 
 .space-article-item .space-article-content .middle {
-    margin: 0 0 10px;
+    margin: 10px 0 18px;
     display: block;
     cursor: pointer
 }
@@ -956,9 +956,9 @@ input:focus, textarea:focus, select:focus {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    font-weight: 700;
-    font-size: 18px;
-    color: #333
+    font-weight: 300;
+    font-size: 23px;
+    color: #418efb;
 }
 
 .space-article-item .space-article-content .middle .middle-content {
@@ -2044,7 +2044,7 @@ html [type=button] {
 }
 
 .space-main .main-content {
-    width: 1000px;
+    width: 1200px;
     margin: 20px auto 60px;
     display: -ms-flexbox;
     display: flex
@@ -2087,7 +2087,7 @@ html [type=button] {
 }
 
 .space-main .main-content .main-content-right {
-    width: 296px;
+    width: 330px;
     margin-left: 20px;
     position: relative;
 }
@@ -2602,6 +2602,10 @@ table {
 
     .space-main .main-content {
         width: 100%;
+        overflow: hidden;
+    }
+    .space-article-item .space-article-content .middle .middle-title {
+        font-size: 20px;
     }
     .header-logo {
         margin-left: 10px;
