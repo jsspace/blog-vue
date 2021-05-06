@@ -32,7 +32,7 @@
     "request": "^2.79.0",
     "serve-favicon": "~2.3.0",
     "sitemap": "^1.13.0",
-    "underscore": "^1.8.3"
+    "underscore": "^1.12.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
