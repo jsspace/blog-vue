@@ -15,7 +15,7 @@
     "debug": "~2.2.0",
     "ejs": "^2.5.7",
     "element-ui": "^1.4.12",
-    "express": "~4.13.4",
+    "express": "~4.17.3",
     "express-session": "^1.15.6",
     "highlight.js": "^9.12.0",
     "lodash": "^4.17.4",
